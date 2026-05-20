@@ -12,9 +12,8 @@ authors = [
 dependencies = [
     "anthropic>=0.40.0",
     "langgraph>=0.2.50",
-    "langchain-anthropic>=0.3.0",
+    "langgraph-checkpoint-sqlite>=2.0.0",
     "pydantic>=2.9.0",
-    "streamlit>=1.40.0",
     "langfuse>=2.50.0",
     "python-dotenv>=1.0.0",
     "sqlalchemy>=2.0.0",
@@ -27,6 +26,11 @@ dev = [
     "ruff>=0.7.0",
     "mypy>=1.13.0",
 ]
+# Weekend 2 — Streamlit three-pane UI. Kept out of the core install so the
+# Weekend 1 CLI build stays lean.
+ui = [
+    "streamlit>=1.40.0",
+]
 
 [build-system]
 requires = ["hatchling"]
@@ -38,6 +42,20 @@ target-version = "py311"
 
 [tool.ruff.lint]
 select = ["E", "F", "I", "B", "UP"]
+
+[tool.mypy]
+python_version = "3.11"
+plugins = ["pydantic.mypy"]
+disallow_untyped_defs = true
+disallow_incomplete_defs = true
+check_untyped_defs = true
+no_implicit_optional = true
+warn_redundant_casts = true
+warn_unused_ignores = true
+
+[[tool.mypy.overrides]]
+module = ["langgraph.*"]
+ignore_missing_imports = true
 
 [tool.pytest.ini_options]
 testpaths = ["tests"]
