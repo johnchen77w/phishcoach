@@ -1,0 +1,74 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+
+# Virtual environments
+venv/
+.venv/
+env/
+ENV/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+.DS_Store
+
+# Environment / secrets
+.env
+.env.local
+.env.*.local
+*.pem
+secrets/
+credentials.json
+
+# LangGraph / SQLite state
+*.db
+*.sqlite
+*.sqlite3
+checkpoints/
+state/
+
+# Eval outputs (large CSVs / JSONLs)
+evals/results/
+evals/raw/
+*.parquet
+
+# Cohort study data — never commit
+cohort/raw/
+cohort/*.csv
+cohort/*.json
+!cohort/.gitkeep
+
+# Streamlit
+.streamlit/secrets.toml
+
+# Jupyter
+.ipynb_checkpoints/
+*.ipynb
+
+# Logs
+*.log
+logs/
+
+# OS
+Thumbs.db
